@@ -1,3 +1,7 @@
+## Profile names
+- "Default"
+- "Profile 1..50"
+
 ## Browsers
     ✔ AVAST Browser
     ✔ Amigo
