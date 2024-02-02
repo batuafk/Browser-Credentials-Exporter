@@ -17,4 +17,5 @@
     ✔ Brave
     ✔ Iridium
 
-# © HenryRichard7
+# Copyright
+@HenryRichard7
