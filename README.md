@@ -12,7 +12,7 @@
 ```py
 Passwords    ['Origin URL', 'Action URL', 'Username', 'Password']
 Credit Cards ['Name on card', 'Card number', 'Expires', 'Modified']
-Cookies      f"{cookie.domain}\t{cookie_secure}\t{cookie.path}\t{cookie_secure}\t{cookie.expires}\t{cookie.name}\t{cookie.value}"
+Cookies      [f"{cookie.domain}\t{cookie_secure}\t{cookie.path}\t{cookie_secure}\t{cookie.expires}\t{cookie.name}\t{cookie.value}"]
 History      ['URL', 'Title', 'Time']
 Downloads    ['URL', 'Path']
 ```
