@@ -19,12 +19,12 @@ Downloads    ['URL', 'Path']
 
 # Browsers
     > AVAST Browser
-    Amigo
-    Torch
-    Kometa
-    Orbitum
-    Cent-browser
-    7star
+    > Amigo
+    > Torch
+    > Kometa
+    > Orbitum
+    > Cent-browser
+    - 7star
     Sputnik
     Vivaldi
     Google-chrome-sxs
