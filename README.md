@@ -1,8 +1,8 @@
-# How it works
-    Saves decrypted credentials to %temp% as {browser_name}-{data_type}.txt
-
 # Copyright
     @henry-richard7
+
+# How it works
+    Saves decrypted credentials to %temp% as {browser_name}-{data_type}.txt
 
 # Profile names
     "Default"
