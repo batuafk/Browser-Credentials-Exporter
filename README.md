@@ -18,7 +18,7 @@ Downloads    ['URL', 'Path']
 ```
 
 # Browsers
-    AVAST Browser
+    > AVAST Browser
     Amigo
     Torch
     Kometa
