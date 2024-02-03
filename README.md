@@ -1,5 +1,5 @@
 # Copyright
-    @HenryRichard7
+    @henry-richard7
 
 # Profile names
     "Default"
