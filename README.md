@@ -4,15 +4,15 @@
 # How it works
     Saves decrypted credentials to %temp% as {browser_name}-{data_type}.txt
 
-# Profile names
-    "Default"
-    "Profile 1..50"
+# Features
+    Checks profiles: 'Default', 'Profile 1..50'
+    Saves cookies as Netscape Cookie formated
 
 # Datas
 ```py
 Passwords    ['Origin URL', 'Action URL', 'Username', 'Password']
 Credit Cards ['Name on card', 'Card number', 'Expires', 'Modified']
-Cookies      (f"{cookie.domain}\t{cookie_secure}\t{cookie.path}\t{cookie_secure}\t{cookie.expires}\t{cookie.name}\t{cookie.value}")  # Netscape Cookie file formated
+Cookies      ['Domain', 'Secure', 'Path', 'Secure', 'Expires', 'Name', 'Value']
 History      ['URL', 'Title', 'Time']
 Downloads    ['URL', 'Path']
 ```
