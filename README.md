@@ -24,15 +24,14 @@ Downloads    ['URL', 'Path']
     > Kometa
     > Orbitum
     > Cent-browser
-    - 7star
-    Sputnik
-    Vivaldi
-    Google-chrome-sxs
-    Google-chrome
-    Epic-privacy-browser
-    Microsoft-edge
-    Uran
-    Yandex
-    Brave
-    Iridium
-    
+    > 7star
+    > Sputnik
+    > Vivaldi
+    > Google-chrome-sxs
+    > Google-chrome
+    > Epic-privacy-browser
+    > Microsoft-edge
+    > Uran
+    > Yandex
+    > Brave
+    > Iridium
