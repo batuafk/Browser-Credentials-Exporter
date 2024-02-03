@@ -1,8 +1,11 @@
+# Copyright
+    @HenryRichard7
+
 # Profile names
     "Default"
     "Profile 1..50"
 
-## Browsers
+# Browsers
     AVAST Browser
     Amigo
     Torch
@@ -20,6 +23,4 @@
     Yandex
     Brave
     Iridium
-
-# Copyright
-    @HenryRichard7
+    
