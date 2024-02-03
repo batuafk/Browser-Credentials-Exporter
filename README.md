@@ -9,11 +9,13 @@
     "Profile 1..50"
 
 # Datas
+```py
     Passwords    ['Origin URL', 'Action URL', 'Username', 'Password']
     Credit Cards ['Name on card', 'Card number', 'Expires', 'Modified']
     Cookies      ['Host key', 'Name', 'Path', 'Cookie', 'Expires on']
     History      ['URL', 'Title', 'Time']
     Downloads    ['URL', 'Path']
+```
 
 # Browsers
     AVAST Browser
