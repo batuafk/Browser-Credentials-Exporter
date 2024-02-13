@@ -1,4 +1,4 @@
-# Copyright
+# Credits for decryption
     @henry-richard7
 
 # How it works
