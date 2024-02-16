@@ -2,7 +2,7 @@
     @henry-richard7
 
 # How it works
-    Saves decrypted credentials to %temp% as {browser_name}-{data_type}.txt
+    Saves decrypted credentials to %temp% as browser_name-data_type.txt
 
 # Features
     Checks profiles: 'Default', 'Profile 1..50'
